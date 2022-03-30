@@ -10,7 +10,27 @@ const uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "
 const lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
+ // Assignment Code
+var generateBtn = document.querySelector("#generate");
 
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
+ // MY CODE BELOW
+ 
  //prompt how many characters we would like the Pw to contain. Must be at least 8 but no more than 128
 var generatePassword = function() {
   //ask user for number of characters
@@ -18,8 +38,20 @@ var generatePassword = function() {
     if (!userchoice) {
       return;
     }
-    else if (userchoice)
-}
+    else if (userchoice< 8) {
+      prompt("Password length must be at least 8 characters!");
+    }
+    else if (userchoice>128){
+      prompt("Password may contain no more than 128 characters");
+    }
+    else {
+      confirm("Do you want special characters?");
+    }
+
+  
+   }
+
+// Create randomizer
 
  //Do you want special characters
 
