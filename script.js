@@ -1,10 +1,13 @@
 //empty array
-var ranArray = []
+
+
  // Assignment Code
  var generateBtn = document.querySelector("#generate");
 
  // Write password to the #password input
  function writePassword() {
+
+  //get password back from generate pass function
   var password = generatePassword();
  
    var passwordText = document.querySelector("#password");
@@ -34,54 +37,64 @@ const lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "
 
 
  // MY CODE BELOW
-function writePassword() {
+function generatePassword() {
   //prompt how many characters we would like the Pw to contain. Must be at least 8 but no more than 128
-  var length = prompt("How many characters would you like the password to contain");
+  var lengths = prompt("How many characters would you like the password to contain");
 console.log(length)
-if (!length || isNaN(length) == true ) {
+if (!lengths || isNaN(lengths) == true ) {
   alert("please enter a numeric value");
-  writePassword()
+  generatePassword()
 }
-else if (length < 8 || length >128) {
+else if (lengths < 8 || lengths >128) {
   alert("Password length must be between 8 and 128 characters!");
-  writePassword()
+  generatePassword()
 }
 else {
+  //Do you want special characters
+var useSpecial = confirm("Do you want special characters?");
+
+// Numbers
+var useNumb = confirm( "Do you want numbers?");
+
+// lowercase letters
+
+var useLower = confirm( "Do you want lowercase letters?");
+
+// Uppercase letters
+var useUpper = confirm("Do you waant uppercase letters?");
+
+
+
+//Final password options array
+var passArray = []
+
+if (useSpecial){
+  passArray = passArray.concat(specialChars);
+}
+if (useNumb){
+  passArray = passArray.concat(numberChars);
+}
+if (useLower){
+  passArray = passArray.concat(uppercase);
+}
+if (useUpper){
+  passArray = passArray.concat(lowercase);
+}
+console.log(passArray);
+var word = "";
+console.log(lengths)
+for (let index = 0; index < lengths; index++) {
+
+  //get random values from passArray
+  word += passArray[Math.floor(Math.random() * passArray.length)];
   
-  
 }
-//Do you want special characters
-var specialChars = confirm("Do you want special characters?");
-console.log(specialChars);
-
-if (specialChars){
-  ranArray=ranArray.concat(specialChars);
-  //PUSH: This has to do with the randomly selected characters
-
-}
-var numberChars = confirm( "Do you want numbers?");
-
-if (numberChars){
-  ranArray=ranArray.concat(numberChars);
-  //PUSH: This has to do with the randomly selected characters
-}
-var lowercase = confirm( "Do you want lowercase letters?");
-
-if(lowercase){
-  ranArray=ranArray.concat(lowercase);
-  //PUSH: This has to do with the randomly selected characters
-}
-var uppercase = confirm("Do you waant uppercase letters?");
-
-if(uppercase){
-  ranArray=ranArray.concat(uppercase);
-  //PUSH: This has to do with the randomly selected characters
+return word;
 }
 
 }
 
 
-// Create randomizer
 
 
 
