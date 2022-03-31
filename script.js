@@ -1,4 +1,5 @@
-
+//empty array
+var ranArray = []
  // Assignment Code
  var generateBtn = document.querySelector("#generate");
 
@@ -17,6 +18,8 @@
 
 
 
+
+
 // Arrays for special characters, lowercase letters, uppercase letters, and numbers
 const specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "-", "=", "+", "(", ")", "{", "}",
  "[", "]", "?", "/", ">", "<", ".", ",", "~", "|"];
@@ -32,6 +35,7 @@ const lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "
 
  // MY CODE BELOW
 function writePassword() {
+  //prompt how many characters we would like the Pw to contain. Must be at least 8 but no more than 128
   var length = prompt("How many characters would you like the password to contain");
 console.log(length)
 if (!length || isNaN(length) == true ) {
@@ -43,19 +47,42 @@ else if (length < 8 || length >128) {
   writePassword()
 }
 else {
-  var useSpecial = confirm("Do you want special characters?");
-console.log(useSpecial);
-}
-var useNumb = confirm( "Do you want numbers?");
-
-if (useNumb){
-  var useLower = confirm( "Do you want lowercase letters?")
-}
-
-if (useLower){
+  
   
 }
+//Do you want special characters
+var specialChars = confirm("Do you want special characters?");
+console.log(specialChars);
+
+if (specialChars){
+  ranArray=ranArray.concat(specialChars);
+  //PUSH: This has to do with the randomly selected characters
+
 }
+var numberChars = confirm( "Do you want numbers?");
+
+if (numberChars){
+  ranArray=ranArray.concat(numberChars);
+  //PUSH: This has to do with the randomly selected characters
+}
+var lowercase = confirm( "Do you want lowercase letters?");
+
+if(lowercase){
+  ranArray=ranArray.concat(lowercase);
+  //PUSH: This has to do with the randomly selected characters
+}
+var uppercase = confirm("Do you waant uppercase letters?");
+
+if(uppercase){
+  ranArray=ranArray.concat(uppercase);
+  //PUSH: This has to do with the randomly selected characters
+}
+
+}
+
+
+// Create randomizer
+
 
 
 
@@ -63,27 +90,4 @@ if (useLower){
 
 
  
- //prompt how many characters we would like the Pw to contain. Must be at least 8 but no more than 128
-
-
-// Create randomizer
-
- //Do you want special characters
-
- //Do you want numbers
-
- // Do you want to include lowercase characters
-
-
- // do you want to contain uppercase characters
-
-
-
-
-
-
-
-
-
-
-
+ 
