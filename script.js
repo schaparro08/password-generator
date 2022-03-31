@@ -1,3 +1,22 @@
+
+ // Assignment Code
+ var generateBtn = document.querySelector("#generate");
+
+ // Write password to the #password input
+ function writePassword() {
+  var password = generatePassword();
+ 
+   var passwordText = document.querySelector("#password");
+ 
+   passwordText.value = password;
+ 
+ }
+ 
+ // Add event listener to generate button
+ generateBtn.addEventListener("click", writePassword);
+
+
+
 // Arrays for special characters, lowercase letters, uppercase letters, and numbers
 const specialChars = ["!", "@", "#", "$", "%", "^", "&", "*", "-", "=", "+", "(", ")", "{", "}",
  "[", "]", "?", "/", ">", "<", ".", ",", "~", "|"];
@@ -10,46 +29,42 @@ const uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "
 const lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
- // Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
-
-
 
  // MY CODE BELOW
+function writePassword() {
+  var length = prompt("How many characters would you like the password to contain");
+console.log(length)
+if (!length || isNaN(length) == true ) {
+  alert("please enter a numeric value");
+  writePassword()
+}
+else if (length < 8 || length >128) {
+  alert("Password length must be between 8 and 128 characters!");
+  writePassword()
+}
+else {
+  var useSpecial = confirm("Do you want special characters?");
+console.log(useSpecial);
+}
+var useNumb = confirm( "Do you want numbers?");
+
+if (useNumb){
+  var useLower = confirm( "Do you want lowercase letters?")
+}
+
+if (useLower){
+  
+}
+}
+
+
+
+
+
+
  
  //prompt how many characters we would like the Pw to contain. Must be at least 8 but no more than 128
-var generatePassword = function() {
-  //ask user for number of characters
-    var userchoice = prompt("How many characters would you like the password to contain");
-    if (!userchoice) {
-      return;
-    }
-    else if (userchoice< 8) {
-      prompt("Password length must be at least 8 characters!");
-    }
-    else if (userchoice>128){
-      prompt("Password may contain no more than 128 characters");
-    }
-    else {
-      confirm("Do you want special characters?");
-    }
 
-  
-   }
 
 // Create randomizer
 
@@ -72,18 +87,3 @@ var generatePassword = function() {
 
 
 
-
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
